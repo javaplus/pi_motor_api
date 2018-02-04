@@ -11,11 +11,16 @@ def hello():
     ser.write('0')
     return "Hello World!"
 
-@app.route('/forward/<int:speed>')
+@app.route('/forward/<string:speed>')
 def go_forward(speed):
     ser.write(speed.encode())
-    # show the post with the given id, the id is an integer
     return 'Speed set to %s' % speed
+
+
+@app.route('/test/<string:input>')
+def test(input):
+    return 'Input set to %s' % input
+
 
 
 if __name__ == '__main__':
