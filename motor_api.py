@@ -8,9 +8,14 @@ ser = serial.Serial('/dev/ttyACM0', 9600)
 
 @app.route("/")
 def hello():
-    ser.write('3')
+    ser.write('0')
     return "Hello World!"
 
+@app.route('/forward/<string:speed>')
+def go_forward(speed):
+    ser.write(speed)
+    # show the post with the given id, the id is an integer
+    return 'Speed set to %s' % speed
 
 
 if __name__ == '__main__':
