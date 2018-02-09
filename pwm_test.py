@@ -19,7 +19,7 @@ GPIO.output(31, True)
 # main loop of program
 print("\nPress Ctl C to quit \n")  # Print blank line before and after message.
 dc=0                               # set dc variable to 0 for 0%
-pwm.start(90)                      # Start PWM with 0% duty cycle
+pwm.start(dc)                      # Start PWM with 0% duty cycle
 #while True:                        # Loop until Ctl C is pressed to stop.
 for dc in range(0, 101, 5):      # Loop from 0 to 100 stepping dc up by 5 each loop
     pwm.ChangeDutyCycle(dc)
@@ -27,6 +27,7 @@ for dc in range(0, 101, 5):      # Loop from 0 to 100 stepping dc up by 5 each l
     
     time.sleep(0.05)               # wait for .05 seconds at current LED brightness level
     print(dc)
+time.sleep(2)
 for dc in range(95, 0, -5):      # Loop from 95 to 5 stepping dc down by 5 each loop
     pwm.ChangeDutyCycle(dc)
     #GPIO.output(32, True)
