@@ -1,5 +1,6 @@
 import serial
 import time
+import json
 from flask import Flask
 from flask_cors import CORS
 from flask import Response
@@ -24,7 +25,9 @@ def go_forward(speed):
 
 @app.route('/test/<string:input>')
 def test(input):
-    return '{"name" : `\"${input}\"`}'
+    data = {}
+    data['name'] = input;
+    return json.dumps(data) 
 
 
 
