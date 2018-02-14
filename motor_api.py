@@ -33,7 +33,7 @@ def test(input):
     return json.dumps(data) 
 
 @app.route('/move', methods = ['POST'])
-def move(input):
+def move():
     runTime = request.json["time"]
     speed = request.json["speed"]
     direction = request.json["direction"]

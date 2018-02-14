@@ -13,7 +13,7 @@ def doTimedMove(runTime,speed, direction):
 def worker(runTime, speed, direction):
     vector = direction + speed + 'E'
     ser.write(vector.encode())
-    time.sleep(runTime)
+    time.sleep(int(runTime))
     print("Waking up to stop")
     vector = direction + '0E'
     ser.write(vector.encode())
