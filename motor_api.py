@@ -24,7 +24,7 @@ def go_forward(speed):
 
 @app.route('/test/<string:input>')
 def test(input):
-    return 'Input set to %s' % input
+    return '{"name" : "${input}"'
 
 
 
