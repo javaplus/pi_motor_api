@@ -20,13 +20,15 @@ def hello():
 @app.route('/forward/<string:speed>')
 def go_forward(speed):
     ser.write(speed.encode())
-    return 'Speed set to %s' % speed
+    responseMsg = {}
+    responseMsg['message'] = 'Speed set to %s' % speed 
+    return json.dumps(responseMsg)
 
 
 @app.route('/test/<string:input>')
 def test(input):
     data = {}
-    data['name'] = input;
+    data['name'] = input
     return json.dumps(data) 
 
 
