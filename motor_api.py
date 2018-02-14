@@ -1,7 +1,8 @@
 import serial
 import time
 import json
-from flask import Flask
+import motor_controller
+from flask import Flask, request
 from flask_cors import CORS
 from flask import Response
 
@@ -29,6 +30,16 @@ def go_forward(speed):
 def test(input):
     data = {}
     data['name'] = input
+    return json.dumps(data) 
+
+@app.route('/move', methods = ['POST'])
+def move(input):
+    runTime = request.json["time"]
+    speed = request.json["speed"]
+    direction = request.json["direction"]
+    motor_controller.doTimedMove(runTime, speed, direction)
+    data = {}
+    data['message'] = 'Moving for %s seconds' % runTime
     return json.dumps(data) 
 
 
