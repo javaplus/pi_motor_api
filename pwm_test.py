@@ -10,11 +10,11 @@ GPIO.setmode(GPIO.BOARD)  # Set Pi to use pin number when referencing GPIO pins.
 GPIO.setup(32, GPIO.OUT)  # Set GPIO pin 12 to output mode.
 pwm = GPIO.PWM(32, 800)   # Initialize PWM on pwmPin 100Hz frequency
 
-GPIO.setup(29, GPIO.OUT)  ## Setup GPIO Pin 11(motor a enable) to OUT
-GPIO.setup(31, GPIO.OUT)  ## Setup GPIO Pin 11(motor a enable) to OUT
+GPIO.setup(29, GPIO.OUT)  ## Setup GPIO Pin 5(motor a enable) to OUT
+GPIO.setup(31, GPIO.OUT)  ## Setup GPIO Pin 6(motor a enable) to OUT
 
 GPIO.output(29, True)
-GPIO.output(31, True)
+GPIO.output(31, False)
 
 # main loop of program
 print("\nPress Ctl C to quit \n")  # Print blank line before and after message.
